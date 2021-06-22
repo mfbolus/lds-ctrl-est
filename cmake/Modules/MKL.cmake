@@ -10,13 +10,14 @@
 ## https://software.intel.com/en-us/articles/a-new-linking-model-single-dynamic-library-mkl_rt-since-intel-mkl-103
 
 set(MKL_NAMES ${MKL_NAMES} mkl_rt)
-#set(MKL_NAMES ${MKL_NAMES} mkl_lapack)
-#set(MKL_NAMES ${MKL_NAMES} mkl_intel_thread)
-#set(MKL_NAMES ${MKL_NAMES} mkl_core)
-#set(MKL_NAMES ${MKL_NAMES} guide)
-#set(MKL_NAMES ${MKL_NAMES} mkl)
-#set(MKL_NAMES ${MKL_NAMES} iomp5)
-#set(MKL_NAMES ${MKL_NAMES} pthread)
+
+# Explicitly link? 
+# see: https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl/link-line-advisor.html
+# 
+#set(MKL_NAMES ${MKL_NAMES} mkl_intel_ilp64_dll)
+#set(MKL_NAMES ${MKL_NAMES} mkl_intel_thread_dll)
+#set(MKL_NAMES ${MKL_NAMES} mkl_core_dll)
+#set(MKL_NAMES ${MKL_NAMES} libiomp5md)
 
 if(CMAKE_SIZEOF_VOID_P EQUAL 8)
   set(MKL_ARCH intel64)
@@ -25,9 +26,11 @@ else()
 endif()
 
 set(MKL_ROOT $ENV{MKLROOT} CACHE TYPE STRING)
+message(STATUS "MKL_ROOT = ${MKL_ROOT}")
 
 if(NOT MKL_ROOT)
   set(MKL_ROOT "/opt/intel/oneapi/mkl")
+  message(STATUS "NOTE: Assuming MKL_ROOT = ${MKL_ROOT}")
 endif()
 
 foreach (MKL_NAME ${MKL_NAMES})
@@ -36,6 +39,7 @@ foreach (MKL_NAME ${MKL_NAMES})
     PATHS
     ${CMAKE_SYSTEM_LIBRARY_PATH}
     ${MKL_ROOT}/lib/${MKL_ARCH}
+    ${MKL_ROOT}
     /usr/lib64
     /usr/lib
     /usr/local/lib64
@@ -124,7 +128,8 @@ else()
 endif()
 
 if(MKL_FOUND)
-    set(PROJECT_REQUIRED_CXX_FLAGS "${PROJECT_REQUIRED_CXX_FLAGS} -DARMA_USE_LAPACK")
+# Add for linked libs commented above: -DMKL_ILP64
+    set(PROJECT_REQUIRED_CXX_FLAGS "${PROJECT_REQUIRED_CXX_FLAGS} -DARMA_USE_LAPACK -DARMA_USE_BLAS")
     list(APPEND PROJECT_REQUIRED_LIBRARIES_ABSOLUTE_NAME ${MKL_LIBRARIES})
     message(STATUS "Found MKL libraries: ${MKL_LIBRARIES}")
 else()
