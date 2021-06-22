@@ -25,13 +25,24 @@ else()
   set(MKL_ARCH ia32)
 endif()
 
-set(MKL_ROOT $ENV{MKLROOT} CACHE TYPE STRING)
-message(STATUS "MKL_ROOT = ${MKL_ROOT}")
+# set(MKL_ROOT $ENV{MKLROOT} CACHE TYPE STRING)
+# message(STATUS "MKL_ROOT = ${MKL_ROOT}")
+# 
+# if(NOT MKL_ROOT)
+#   set(MKL_ROOT "/opt/intel/oneapi/mkl")
+#   message(STATUS "NOTE: Assuming MKL_ROOT = ${MKL_ROOT}")
+# endif()
 
-if(NOT MKL_ROOT)
-  set(MKL_ROOT "/opt/intel/oneapi/mkl")
-  message(STATUS "NOTE: Assuming MKL_ROOT = ${MKL_ROOT}")
+set(ONEAPI_ROOT $ENV{ONEAPI_ROOT})
+message(STATUS "ONEAPI_ROOT = ${ONEAPI_ROOT}")
+
+if(NOT ONEAPI_ROOT)
+  set(ONEAPI_ROOT "/opt/intel/oneapi")
+  message(STATUS "NOTE: Assuming ONEAPI_ROOT = ${ONEAPI_ROOT}")
 endif()
+
+set(MKL_ROOT "${ONEAPI_ROOT}mkl")
+message(STATUS "MKL_ROOT = ${MKL_ROOT}")
 
 foreach (MKL_NAME ${MKL_NAMES})
   find_library(${MKL_NAME}_LIBRARY
@@ -39,6 +50,7 @@ foreach (MKL_NAME ${MKL_NAMES})
     PATHS
     ${CMAKE_SYSTEM_LIBRARY_PATH}
     ${MKL_ROOT}/lib/${MKL_ARCH}
+    ${MKL_ROOT}/latest/lib/${MKL_ARCH}
     ${MKL_ROOT}
     /usr/lib64
     /usr/lib
