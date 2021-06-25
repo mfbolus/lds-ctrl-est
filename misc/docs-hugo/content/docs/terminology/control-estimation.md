@@ -63,3 +63,11 @@ Integral action and the {{<katex>}} \Delta \mathbf{u} {{</katex>}} control law c
 ## Calculating reference state-control from output
 In cases where an output reference is supplied and the goal is to track either a static or slowly varying output, users do not have to produce {{<katex>}} \mathbf{x}^{\rm ref} {{</katex>}} and {{<katex>}} \mathbf{u}^{\rm ref} {{</katex>}}. Methods are provided for calculating the state and control that would be required to reach the reference output at steady state (`lds::Controller<System>::ControlOutputReference`). This is achieved by linearly-constrained least squares. For single-output systems, it results in an exact solution; however, for multi-output problems it provides a least squares comprimise across outputs.
 
+## Switched LDS control
+When the dynamics of physical systems are modeled as occupying one of several discrete linear operating "modes", a different control law may be applied as a function of system mode in a switched control scheme:
+
+{{<katex display>}}
+\mathbf{u}_{t} = \mathbf{u}^{\rm ref}_{t,q} - \mathbf{K}^c_{x,q} \left( \widehat{\mathbf{x}}_t - \mathbf{x}^{\rm ref}_{t,q}\right)\;,
+{{</katex>}}
+
+where {{<katex>}} q {{</katex>}} denotes the mode index. As the parameters of the system change between operating modes, so too does the state estimator. This state estimation/control logic is provided in objects derived from class `lds::SwitchedController`, which includes a method `lds::SwitchedController::Switch` that moves between multiple predefined systems.

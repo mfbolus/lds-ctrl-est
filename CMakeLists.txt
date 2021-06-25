@@ -8,13 +8,6 @@ set(CMAKE_PROJECT_NAME_CAP LDSCTRLEST)#all caps
 # TODO(mfbolus): Update
 set(PROJECT_URL https://github.com/stanley-rozell/ldsCtrlEst)
 
-# WINDOWS WARNING
-if (WIN32)
-message(WARNING "Build/Use of this library on Windows is untested and
-  will likely not work properly. If this is the case,
-  please file an issue and/or make a pull request @${PROJECT_URL} .")
-endif()
-
 # Specify C++ standard
 # n.b. this has to be before adding targets
 set(CMAKE_CXX_STANDARD 11)
@@ -270,6 +263,7 @@ if(DOXYGEN_FOUND)
   set(DOXYGEN_FULL_PATH_NAMES "NO")
   set(DOXYGEN_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/doxygen")
   set(DOXYGEN_HTML_OUTPUT "${PROJECT_BINARY_DIR}/doxygen/html")
+  # HTML less important. XML is what is used to generate markdown for Hugo, etc.
   set(DOXYGEN_GENERATE_XML "YES")
   set(DOXYGEN_XML_OUTPUT "${PROJECT_BINARY_DIR}/doxygen/xml")
   set(DOXYGEN_EXAMPLE_PATH "examples")
@@ -277,7 +271,7 @@ if(DOXYGEN_FOUND)
   set(DOXYGEN_EXCLUDE_PATTERNS "*.m")
 
   doxygen_add_docs(doxygen
-      ${PROJECT_BINARY_DIR}/include/ ${PROJECT_SOURCE_DIR}/src/ ${PROJECT_SOURCE_DIR}/examples/
+      ${PROJECT_BINARY_DIR}/include/ ${PROJECT_SOURCE_DIR}/src/ ${PROJECT_SOURCE_DIR}/src-fit/ ${PROJECT_SOURCE_DIR}/examples/
       ALL)
 elseif()
   message("Doxygen not found. Will not generate docs ... ")

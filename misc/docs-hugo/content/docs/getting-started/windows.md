@@ -10,7 +10,7 @@ After installing the dependencies above and downloading the `ldsCtrlEst` library
 
 # Common issues
 
-1. "Generate CMake Cache" step errs because creating symbolic links is not permitted.
+1. "In Microsoft Visual Studio, the 'Generate CMake Cache' step errs because creating symbolic links is not permitted."
 
   Certain source files are sym-linked to the build/install directories during configuration with cmake. As such, your user in Windows must be permitted to do so. Make sure that your user is listed next to *Control Panel -> Administrative Tools -> Local Policies -> User Rights Assignment -> Create Symbolic Links*.
 

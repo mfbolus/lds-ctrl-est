@@ -63,3 +63,18 @@ z_{t}^i \sim \rm{Poisson} \left(y_{t}^i \right)
 
     c           : i^th row of output matrix (C)
     d           : output bias
+
+## Switched LDS Models
+In cases where a system's dynamics cannot be approximated suffiently as a single linear dynamical system but can be said to have multiple discrete operating "modes" in which the dynamics appear locally linear, a "switched" LDS may be an appropriate model choice. In this type of nonlinear model, the dynamics of the physical system flip between multiple linear systems, or "modes", spontaneously or as a function of exogenous forces. For the purposes of controlling such systems, this library includes control logic for switched LDS models with Gaussian or Poisson observations.
+
+{{< katex display >}}
+\mathbf{x}_{t+1} = f\left( \mathbf{x}_{t}, \mathbf{v}_{t} \right) = \mathbf{A}_q \mathbf{x}_{t} + \mathbf{B}_q \mathbf{v}_{t} + \mathbf{m}_{t} + \mathbf{w}_{t}
+{{< /katex >}}
+
+{{< katex display >}}
+\mathbf{y}_{t} = h\left( \mathbf{x}_{t}, \mathbf{\theta}_q \right)
+{{< /katex >}}
+
+    q           : operating "mode" index
+
+    theta       : output function parameters

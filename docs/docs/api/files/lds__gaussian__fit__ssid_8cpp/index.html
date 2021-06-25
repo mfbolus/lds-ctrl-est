@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="GLDS SSID fit type.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="src-fit/lds_gaussian_fit_ssid.cpp" />
+<meta property="og:description" content="GLDS SSID fit type." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stanley-rozell.github.io/lds-ctrl-est/docs/api/files/lds__gaussian__fit__ssid_8cpp/" />
+
+<title>src-fit/lds_gaussian_fit_ssid.cpp | LDS C&amp;E</title>
+<link rel="manifest" href="/lds-ctrl-est/manifest.json">
+<link rel="icon" href="/lds-ctrl-est/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/lds-ctrl-est/book.min.1f18e1770470f1550b743441539a68f3687608045f0f23eebeb7810c1ac57077.css" integrity="sha256-HxjhdwRw8VULdDRBU5po82h2CARfDyPuvreBDBrFcHc=" crossorigin="anonymous">
+  <script defer src="/lds-ctrl-est/flexsearch.min.js"></script>
+  <script defer src="/lds-ctrl-est/en.search.min.f10911ecb1d331349088cb420797f4010549547e68b4cebcb2505e1c8243bee8.js" integrity="sha256-8QkR7LHTMTSQiMtCB5f0AQVJVH5otM68slBeHIJDvug=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/lds-ctrl-est/"><img src="/lds-ctrl-est/ldsctrlest-logo.png" alt="Logo" /><span>LDS C&amp;E</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  <ul>
+<li><strong>Library Terminology</strong>
+<ul>
+<li><a href="/lds-ctrl-est/docs/terminology/model/"><strong>Model Definitions</strong></a></li>
+<li><a href="/lds-ctrl-est/docs/terminology/control-estimation/"><strong>Control &amp; Estimation</strong></a></li>
+</ul>
+</li>
+</ul>
+<p><br /></p>
+<ul>
+<li><a href="/lds-ctrl-est/docs/getting-started/getting-started/"><strong>Getting Started</strong></a>
+<ul>
+<li><a href="/lds-ctrl-est/docs/getting-started/linux-macos/">Linux/MacOS</a></li>
+<li><a href="/lds-ctrl-est/docs/getting-started/windows/">Windows</a></li>
+</ul>
+</li>
+</ul>
+<p><br /></p>
+<ul>
+<li><strong>Tutorials</strong>
+<ul>
+<li><a href="/lds-ctrl-est/docs/tutorials/eg_glds_control/">GLDS Control</a></li>
+<li><a href="/lds-ctrl-est/docs/tutorials/eg_plds_state_estimation/">PLDS Estimation</a></li>
+<li><a href="/lds-ctrl-est/docs/tutorials/eg_switched_plds_control/">Switched PLDS Control</a></li>
+</ul>
+</li>
+</ul>
+<p><br /></p>
+<ul>
+<li><strong>API Reference</strong>
+<ul>
+<li><a href="/lds-ctrl-est/docs/api/namespaces/">Namespaces</a></li>
+<li><a href="/lds-ctrl-est/docs/api/classes/">Classes</a></li>
+<li><a href="/lds-ctrl-est/docs/api/modules/">Modules</a></li>
+<li><a href="/lds-ctrl-est/docs/api/files/">Files</a></li>
+<li><a href="/lds-ctrl-est/docs/api/examples/">Examples</a></li>
+</ul>
+</li>
+</ul>
+<p><br /></p>
+<ul>
+<li><a href="/lds-ctrl-est/issues-contributing/"><strong>Reporting Issues &amp; Contributing</strong></a></li>
+</ul>
+<p><br /></p>
+<ul>
+<li><a href="/lds-ctrl-est/acknowledgements/"><strong>Acknowledgements</strong></a></li>
+</ul>
+<p><br /></p>
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/stanley-rozell/lds-ctrl-est" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/lds-ctrl-est/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>src-fit/lds_gaussian_fit_ssid.cpp</strong>
+
+  <label for="toc-control">
+    
+    <img src="/lds-ctrl-est/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#src-fitlds_gaussian_fit_ssidcpp">src-fit/lds_gaussian_fit_ssid.cpp</a>
+      <ul>
+        <li><a href="#namespaces">Namespaces</a></li>
+        <li><a href="#detailed-description">Detailed Description</a></li>
+        <li><a href="#source-code">Source code</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="src-fitlds_gaussian_fit_ssidcpp">
+  src-fit/lds_gaussian_fit_ssid.cpp
+  <a class="anchor" href="#src-fitlds_gaussian_fit_ssidcpp">#</a>
+</h1>
+<p>GLDS SSID fit type.  <a href="#detailed-description">More&hellip;</a></p>
+<h2 id="namespaces">
+  Namespaces
+  <a class="anchor" href="#namespaces">#</a>
+</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="/lds-ctrl-est/docs/api/namespaces/namespacelds/">lds</a></strong> <br>Linear Dynamical Systems (LDS) namespace.</td>
+</tr>
+<tr>
+<td><strong><a href="/lds-ctrl-est/docs/api/namespaces/namespacelds_1_1gaussian/">lds::gaussian</a></strong> <br>Linear Dynamical Systems with Gaussian observations.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="detailed-description">
+  Detailed Description
+  <a class="anchor" href="#detailed-description">#</a>
+</h2>
+<p>This file partially defines a type by which Gaussian-output LDS models are fit by a subspace identification (SSID) algorithm (<code>[lds::gaussian::FitSSID](/lds-ctrl-est/docs/api/classes/classlds_1_1gaussian_1_1_fit_s_s_i_d/)</code>).</p>
+<p>References: [1] van Overschee P, de Moore B. (1996) Subspace Identification for Linear Systems. Boston: Springer.</p>
+<h2 id="source-code">
+  Source code
+  <a class="anchor" href="#source-code">#</a>
+</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">//===-- lds_gaussian_fit_ssid.cpp - GLDS Fit (SSID) -----------------------===//
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// Copyright 2021 Michael Bolus
+</span><span style="color:#75715e">// Copyright 2021 Georgia Institute of Technology
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+</span><span style="color:#75715e">// you may not use this file except in compliance with the License.
+</span><span style="color:#75715e">// You may obtain a copy of the License at
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">//     http://www.apache.org/licenses/LICENSE-2.0
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// Unless required by applicable law or agreed to in writing, software
+</span><span style="color:#75715e">// distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+</span><span style="color:#75715e">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+</span><span style="color:#75715e">// See the License for the specific language governing permissions and
+</span><span style="color:#75715e">// limitations under the License.
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">//===----------------------------------------------------------------------===//
+</span><span style="color:#75715e">//===----------------------------------------------------------------------===//
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;ldsCtrlEst_h/lds_gaussian_fit_ssid.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">namespace</span> lds {
+<span style="color:#66d9ef">namespace</span> gaussian {
+<span style="color:#66d9ef">void</span> FitSSID<span style="color:#f92672">::</span>DecomposeData() {
+  <span style="color:#75715e">// // do LQ decomp
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// // Note that &#34;R&#34; in van Overschee is lower-triangular (L), not &#34;R&#34; in QR
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// // decomp. Very confusing.
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// Matrix q_t;
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// lq(L_, q_t, D_);
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// // van Overschee zeros out the other elements.
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// L_ = trimatl(L_);
+</span><span style="color:#75715e"></span>
+  <span style="color:#75715e">// Depending on dataset, this may be faster:
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// Buesing CoreSSID/ssidN4SIDsmall.m:
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// &#34;Cholesky decomposition of SIG, corresponds to QR of data matrix&#34;
+</span><span style="color:#75715e"></span>  Matrix cov <span style="color:#f92672">=</span> arma<span style="color:#f92672">::</span>cov(D_.t(), <span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> D_.n_cols;  <span style="color:#75715e">// undo normalization
+</span><span style="color:#75715e"></span>  L_ <span style="color:#f92672">=</span> arma<span style="color:#f92672">::</span>chol(cov, <span style="color:#e6db74">&#34;lower&#34;</span>);
+}
+
+<span style="color:#66d9ef">void</span> FitSSID<span style="color:#f92672">::</span>SolveVanOverschee() {
+  <span style="color:#75715e">// van Overschee, de Moor (1996)
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// van Overschee, de Moor `subid.m` re-implementation
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// https://www.mathworks.com/matlabcentral/fileexchange/2290-subspace-identification-for-linear-systems
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// (matlab scripts accompanying book)
+</span><span style="color:#75715e"></span>
+  <span style="color:#66d9ef">auto</span> ext_obs_tm1 <span style="color:#f92672">=</span> ext_obs_t_.submat(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, ext_obs_t_.n_rows <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> n_y_,
+                                       ext_obs_t_.n_cols <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+
+  <span style="color:#75715e">// required submats
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">auto</span> R_56_14 <span style="color:#f92672">=</span>
+      L_.submat(n_h_ <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> n_u_ <span style="color:#f92672">+</span> n_y_), <span style="color:#ae81ff">0</span>, n_h_ <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> n_u_ <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> n_y_) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>,
+                n_h_ <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> n_u_ <span style="color:#f92672">+</span> n_y_) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+  <span style="color:#66d9ef">auto</span> R_23_15 <span style="color:#f92672">=</span> L_.submat(n_h_ <span style="color:#f92672">*</span> n_u_, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> n_h_ <span style="color:#f92672">*</span> n_u_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>,
+                           n_h_ <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> n_u_ <span style="color:#f92672">+</span> n_y_) <span style="color:#f92672">+</span> n_y_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+  <span style="color:#66d9ef">auto</span> R_66_15 <span style="color:#f92672">=</span> L_.submat(n_h_ <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> n_u_ <span style="color:#f92672">+</span> n_y_) <span style="color:#f92672">+</span> n_y_, <span style="color:#ae81ff">0</span>,
+                           <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> n_h_ <span style="color:#f92672">*</span> (n_u_ <span style="color:#f92672">+</span> n_y_) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>,
+                           n_h_ <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> n_u_ <span style="color:#f92672">+</span> n_y_) <span style="color:#f92672">+</span> n_y_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+  <span style="color:#66d9ef">auto</span> R_55_15 <span style="color:#f92672">=</span> L_.submat(n_h_ <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> n_u_ <span style="color:#f92672">+</span> n_y_), <span style="color:#ae81ff">0</span>,
+                           n_h_ <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> n_u_ <span style="color:#f92672">+</span> n_y_) <span style="color:#f92672">+</span> n_y_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>,
+                           n_h_ <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> n_u_ <span style="color:#f92672">+</span> n_y_) <span style="color:#f92672">+</span> n_y_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+  <span style="color:#66d9ef">auto</span> R_56_15 <span style="color:#f92672">=</span>
+      L_.submat(n_h_ <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> n_u_ <span style="color:#f92672">+</span> n_y_), <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> n_h_ <span style="color:#f92672">*</span> (n_u_ <span style="color:#f92672">+</span> n_y_) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>,
+                n_h_ <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> n_u_ <span style="color:#f92672">+</span> n_y_) <span style="color:#f92672">+</span> n_y_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+
+  <span style="color:#75715e">// Solve for params using appropriate algorithm:
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// &#34;robust&#34; deterministic/stochastic algorithm in van Overschee 1996
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// Use the algorithm that the authors say &#34;works&#34; in practice.
+</span><span style="color:#75715e"></span>
+  <span style="color:#75715e">// n.b., This is what textbook (1996) says:
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">//
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// Matrix Tr = join_vert(pinv(ext_obs_t_) * R_56_15, R_23_15);
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">//
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// HOWEVER, do not know why, but have to fill last place with zeros like the
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// authors do in their Matlab code! (see `subid.m` van Overschee code)
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// Otherwise, get ridiculous covariances (although A,C estimates are close to
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// same...)
+</span><span style="color:#75715e"></span>  Matrix Tr <span style="color:#f92672">=</span> join_vert(
+      join_horiz(pinv(ext_obs_t_) <span style="color:#f92672">*</span> R_56_14, Matrix(n_x_, n_y_, fill<span style="color:#f92672">::</span>zeros)),
+      R_23_15);
+  Matrix Tl <span style="color:#f92672">=</span> join_vert(pinv(ext_obs_tm1) <span style="color:#f92672">*</span> R_66_15, R_55_15);
+  Matrix S <span style="color:#f92672">=</span> Tl <span style="color:#f92672">*</span> pinv(Tr);
+
+  <span style="color:#75715e">// vanOverschee subid.m does this now:
+</span><span style="color:#75715e"></span>  Matrix err <span style="color:#f92672">=</span> Tl <span style="color:#f92672">-</span> S <span style="color:#f92672">*</span> Tr;
+
+  fit_.set_A(S.submat(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, n_x_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, n_x_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>));
+  fit_.set_C(S.submat(n_x_, <span style="color:#ae81ff">0</span>, n_x_ <span style="color:#f92672">+</span> n_y_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, n_x_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>));
+
+  <span style="color:#75715e">// At this point, van Overschee &amp; de Moor suggest re-calculating ext_obs_t_,
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// ext_obs_tm1 from newly estimated (A, C) because it was just an
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// approximation.
+</span><span style="color:#75715e"></span>  RecomputeExtObs();
+  ext_obs_tm1 <span style="color:#f92672">=</span> ext_obs_t_.submat(
+      <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, ext_obs_t_.n_rows <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> n_y_,
+      ext_obs_t_.n_cols <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);  <span style="color:#75715e">// extended observability matrix
+</span><span style="color:#75715e"></span>  Tl <span style="color:#f92672">=</span> join_vert(pinv(ext_obs_tm1) <span style="color:#f92672">*</span> R_66_15, R_55_15);
+  <span style="color:#75715e">// Tr = join_vert(pinv(ext_obs_t_) * R_56_15, R_23_15);
+</span><span style="color:#75715e"></span>  Tr <span style="color:#f92672">=</span> join_vert(
+      join_horiz(pinv(ext_obs_t_) <span style="color:#f92672">*</span> R_56_14, Matrix(n_x_, n_y_, fill<span style="color:#f92672">::</span>zeros)),
+      R_23_15);
+  S <span style="color:#f92672">=</span> Tl <span style="color:#f92672">*</span> pinv(Tr);
+
+  Matrix Lcurly <span style="color:#f92672">=</span> S.submat(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, n_x_ <span style="color:#f92672">+</span> n_y_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, n_x_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> pinv(ext_obs_t_);
+  Matrix Mcurly <span style="color:#f92672">=</span> pinv(ext_obs_tm1);
+  Matrix Pcurly <span style="color:#f92672">=</span> Tl <span style="color:#f92672">-</span> Lcurly <span style="color:#f92672">*</span> R_56_15;
+  Vector Pvec <span style="color:#f92672">=</span> vectorise(Pcurly);
+  Matrix Qcurly <span style="color:#f92672">=</span> R_23_15;
+
+  <span style="color:#75715e">// Identify [D; B]
+</span><span style="color:#75715e"></span>  Matrix <span style="color:#a6e22e">sum_QcurlyT_kron_Ncurly</span>(
+      (n_h_ <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> n_u_ <span style="color:#f92672">+</span> n_y_) <span style="color:#f92672">+</span> n_y_) <span style="color:#f92672">*</span> (n_y_ <span style="color:#f92672">+</span> n_x_), n_u_ <span style="color:#f92672">*</span> (n_y_ <span style="color:#f92672">+</span> n_x_),
+      fill<span style="color:#f92672">::</span>zeros);
+
+  Matrix <span style="color:#a6e22e">eye_ext_obs_tm1</span>(n_y_ <span style="color:#f92672">+</span> ext_obs_tm1.n_rows, n_y_ <span style="color:#f92672">+</span> ext_obs_tm1.n_cols,
+                         fill<span style="color:#f92672">::</span>eye);
+  eye_ext_obs_tm1.submat(n_y_, n_y_, eye_ext_obs_tm1.n_rows <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>,
+                         eye_ext_obs_tm1.n_cols <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">=</span> ext_obs_tm1;
+
+  <span style="color:#75715e">// van Overschee 1996 p. 126
+</span><span style="color:#75715e"></span>  Matrix N1_Tl <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>Lcurly;
+  N1_Tl.submat(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, n_x_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, N1_Tl.n_cols <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">+=</span>
+      join_horiz(Matrix(n_x_, n_y_, fill<span style="color:#f92672">::</span>zeros), Mcurly);
+  N1_Tl.submat(n_x_, <span style="color:#ae81ff">0</span>, n_x_ <span style="color:#f92672">+</span> n_y_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, n_y_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">+=</span>
+      Matrix(n_y_, n_y_, fill<span style="color:#f92672">::</span>eye);
+
+  Matrix <span style="color:#a6e22e">Nk_Tl</span>(N1_Tl.n_rows, N1_Tl.n_cols, fill<span style="color:#f92672">::</span>zeros);
+  Matrix N_k;
+  <span style="color:#66d9ef">for</span> (size_t k <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; k <span style="color:#f92672">&lt;</span> n_h_; k<span style="color:#f92672">++</span>) {
+    <span style="color:#66d9ef">auto</span> Qcurly_k <span style="color:#f92672">=</span>
+        Qcurly.submat(n_u_ <span style="color:#f92672">*</span> k, <span style="color:#ae81ff">0</span>, n_u_ <span style="color:#f92672">*</span> (k <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, Qcurly.n_cols <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+
+    Nk_Tl.zeros();
+    Nk_Tl.submat(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, n_x_ <span style="color:#f92672">+</span> n_y_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, Nk_Tl.n_cols <span style="color:#f92672">-</span> k <span style="color:#f92672">*</span> n_y_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">=</span>
+        N1_Tl.submat(<span style="color:#ae81ff">0</span>, k <span style="color:#f92672">*</span> n_y_, N1_Tl.n_rows <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, N1_Tl.n_cols <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+    N_k <span style="color:#f92672">=</span> Nk_Tl <span style="color:#f92672">*</span> eye_ext_obs_tm1;
+
+    sum_QcurlyT_kron_Ncurly <span style="color:#f92672">+=</span> kron(Qcurly_k.t(), N_k);
+  }
+
+  <span style="color:#75715e">// default way: *no* constraint on G0 or feedthrough (D=0)
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// (cf my tweaked ssid implementation)
+</span><span style="color:#75715e"></span>  Vector db_vec <span style="color:#f92672">=</span> pinv(sum_QcurlyT_kron_Ncurly) <span style="color:#f92672">*</span> Pvec;
+  <span style="color:#75715e">// TODO(mfbolus): this gets thrown away:
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// Matrix D = Matrix(db_vec.memptr(), n_y_, n_u_);
+</span><span style="color:#75715e"></span>  fit_.set_B(Matrix(db_vec.memptr() <span style="color:#f92672">+</span> (n_u_ <span style="color:#f92672">*</span> n_y_), n_x_, n_u_));
+
+  Matrix cov_err <span style="color:#f92672">=</span> err <span style="color:#f92672">*</span> err.t();
+  fit_.set_Q(cov_err.submat(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, n_x_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, n_x_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>));
+  fit_.set_R(cov_err.submat(n_x_, n_x_, n_x_ <span style="color:#f92672">+</span> n_y_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, n_x_ <span style="color:#f92672">+</span> n_y_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>));
+}  <span style="color:#75715e">// SolveVanOverschee
+</span><span style="color:#75715e"></span>
+}  <span style="color:#75715e">// namespace gaussian
+</span><span style="color:#75715e"></span>}  <span style="color:#75715e">// namespace lds
+</span></code></pre></div><hr>
+<p>Updated on 25 June 2021 at 10:42:30 CDT</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function select(element){const selection=window.getSelection();const range=document.createRange();range.selectNodeContents(element);selection.removeAllRanges();selection.addRange(range);}
+document.querySelectorAll("pre code").forEach(code=>{code.addEventListener("click",function(event){select(code.parentElement);if(navigator.clipboard){navigator.clipboard.writeText(code.parentElement.textContent);}});});})();</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#src-fitlds_gaussian_fit_ssidcpp">src-fit/lds_gaussian_fit_ssid.cpp</a>
+      <ul>
+        <li><a href="#namespaces">Namespaces</a></li>
+        <li><a href="#detailed-description">Detailed Description</a></li>
+        <li><a href="#source-code">Source code</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

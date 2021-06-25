@@ -28,60 +28,8 @@ Among other things, this project also does not provide methods for trajectory op
 - Example programs and visualization scripts are located under `examples/`.
 - Example programs that demonstrate how to use ldsCtrlEst in other projects are provided in `misc/`. See `misc/test-cmake-installation` for a project that uses `cmake` to configure your project build and `misc/test-pkgconfig-installation` which is the same but uses a hand-written Makefile and calls to pkg-config. As the names suggest, building these programs is a simple way to test your installation of ldsCtrlEst.
 
-# Dependencies
-Note that the primary dependencies of this project listed below must be installed along with their header files and with CMake config files *or* pkg-config files. The latter files are used to configure this project's build. It is strongly encouraged to install the dependencies below using a package manager (*e.g.*, apt, pacman, macports).
-
-- For project configuration, install [`cmake`](https://cmake.org/) as well as [`pkg-config`](https://gitlab.freedesktop.org/pkg-config/pkg-config). The latter is optional.
-- The linear algebra library [`armadillo`](http://arma.sourceforge.net/) is used throughout this repository.
-- The [HDF5](https://www.hdfgroup.org/downloads/hdf5/) library is used to save output from example test programs.
-- For use of this library in Matlab executables (mex) on Linux operating systems, you will need [OpenBlas](http://www.openblas.net/), ensuring the *static* library `libopenblas.a` is installed. You will also need to install [`gfortran`](https://gcc.gnu.org/fortran/).
-
-# Compilation + Installation
-This project is configured/compiled/installed by way of CMake and (on Unix-based operating systems) GNU Make. For configuration with CMake, there are three available options.
-1. `LDSCTRLEST_BUILD_EXAMPLES`  : [default= ON] whether to build example programs located under `examples/` in the source tree
-2. `LDSCTRLEST_BUILD_FIT`       : [default=OFF] whether to build the auxiliary fitting portion of the source code that is not pertinent to control implementation
-3. `LDSCTRLEST_BUILD_STATIC`    : [default=OFF] whether to statically link against OpenBLAS and create a static ldsCtrlEst library for future use
-
-*n.b., If both options 2 and 3 are enabled, Matlab/Octave mex functions will be compiled for exposing some of the fitting functionality to Matlab/Octave.*
-
-Below are example usages of `cmake`/`make` to configure/build the library.
-- For basic project build & install
-	```shell
-	cd /path/to/repository
-	mkdir build && cd build
-	cmake .. #configure build
-	make #build the project
-	sudo make install #[optional] installs to default location (OS-specific)
-	```
-
-- To set the install prefix
-	```shell
-	cd /path/to/repository
-	mkdir build && cd build
-	cmake -DCMAKE_INSTALL_PREFIX=/your/install/prefix .. #configure build with chosen install location
-	make #build the project
-	make install #install to /your/install/prefix
-	```
-
-- To build the *entire* project including fit code, a static library for Matlab compatibility, and the included Matlab `mex` functions for fitting GLDS/PLDS models.
-	```shell
-	cd /path/to/repository
-	mkdir build && cd build
-	cmake -DLDSCTRLEST_BUILD_FIT=1 -DLDSCTRLEST_BUILD_STATIC=1 .. #configure to build the fitting portion of library and statically link openblas and ldsCtrlEst to mex files
-	make #build the project
-	```
-
-	*n.b.*, If you choose not to install the library or install it to the non-default location, ensure you have updated the following environment variables on Unix-based operating systems.
-	1. `LD_LIBRARY_PATH`: search path for dynamically loaded libraries
-	2. `PKG_CONFIG_PATH`: search path for `pkg-config` tool
-	3. `CMAKE_PREFIX_PATH`: search path of prefix where CMake will look for package config files
-
-	*e.g.*, Assuming you set `-DCMAKE_INSTALL_PREFIX=/your/install/prefix` during project configuration and your login shell uses the `~/.profile` startup file, open `~/.profile` in a text editor and add ...
-	```shell
-	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/your/install/prefix/lib
-	export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/your/install/prefix/lib/pkgconfig
-	export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/your/install/prefix
-	```
+# Getting Started
+This library has been tested on Linux, MacOS, and Windows machines. See the [documentation for downloading/building/installing the library and its dependencies](https://stanley-rozell.github.io/lds-ctrl-est/docs/getting-started/). This getting-started documentation has only been tested on systems with amd64 architecture and in, the case of Windows, currently only applies to PCs with Intel CPUs.
 
 ## Common issues
 
@@ -99,6 +47,10 @@ Below are example usages of `cmake`/`make` to configure/build the library.
 	export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/your/install/prefix
 	export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/your/install/prefix
 	```
+
+3. "In Microsoft Visual Studio, the 'Generate CMake Cache' step errs because creating symbolic links is not permitted."
+
+  Certain source files are sym-linked to the build/install directories during configuration with cmake. As such, your user in Windows must be permitted to do so. Make sure that your user is listed next to *Control Panel -> Administrative Tools -> Local Policies -> User Rights Assignment -> Create Symbolic Links*.
 
 # Reporting Issues
 If you encounter bugs when using this library or have specific feature requests that you believe fall within the stated scope of this project, please [open an issue on GitHub](https://github.com/stanley-rozell/lds-ctrl-est/issues) and use an appropriate issue template where possible. You may also fork the repository and submit pull-requests with your suggested changes.

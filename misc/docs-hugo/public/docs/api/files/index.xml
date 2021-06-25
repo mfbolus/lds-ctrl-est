@@ -11,7 +11,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://stanley-rozell.github.io/lds-ctrl-est/docs/api/files/dir_d28a4824dc47e487b107a5db32ef43c4/</guid>
-      <description>examples #  Files #     Name     examples/eg_glds_ctrl.cpp   examples/eg_glds_du_plds_ctrl.cpp   examples/eg_plds_ctrl.cpp   examples/eg_plds_est.cpp   examples/eg_plds_switched_ctrl.cpp     Updated on 22 June 2021 at 23:08:17 CDT</description>
+      <description>examples #  Files #     Name     examples/eg_glds_ctrl.cpp   examples/eg_glds_du_plds_ctrl.cpp   examples/eg_plds_ctrl.cpp   examples/eg_plds_est.cpp   examples/eg_plds_switched_ctrl.cpp     Updated on 25 June 2021 at 10:42:30 CDT</description>
     </item>
     
     <item>
@@ -68,7 +68,7 @@ Source code #  //===-- eg_plds_ctrl.cpp - Example PLDS Control -----------------
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://stanley-rozell.github.io/lds-ctrl-est/docs/api/files/dir_d44c64559bbebec7f509842c48db8b23/</guid>
-      <description>include #  Directories #     Name     ldsCtrlEst_h     Updated on 22 June 2021 at 23:08:17 CDT</description>
+      <description>include #  Directories #     Name     ldsCtrlEst_h     Updated on 25 June 2021 at 10:42:30 CDT</description>
     </item>
     
     <item>
@@ -320,7 +320,70 @@ Source code #  //===-- eg_plds_ctrl.cpp - Example PLDS Control -----------------
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://stanley-rozell.github.io/lds-ctrl-est/docs/api/files/dir_68267d1309a1af8e8297ef4c3efbcdba/</guid>
-      <description>src #  Files #     Name     src/lds.cpp misc lds namespace functions   src/lds_gaussian_sys.cpp GLDS base type.   src/lds_poisson_sys.cpp PLDS base type.   src/lds_sys.cpp LDS base type.   src/lds_uniform_vecs.cpp Uniformly sized vectors.     Updated on 22 June 2021 at 23:08:17 CDT</description>
+      <description>src #  Files #     Name     src/lds.cpp misc lds namespace functions   src/lds_gaussian_sys.cpp GLDS base type.   src/lds_poisson_sys.cpp PLDS base type.   src/lds_sys.cpp LDS base type.   src/lds_uniform_vecs.cpp Uniformly sized vectors.     Updated on 25 June 2021 at 10:42:30 CDT</description>
+    </item>
+    
+    <item>
+      <title>src-fit</title>
+      <link>https://stanley-rozell.github.io/lds-ctrl-est/docs/api/files/dir_b4fca80306658f269dad784bf0104728/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanley-rozell.github.io/lds-ctrl-est/docs/api/files/dir_b4fca80306658f269dad784bf0104728/</guid>
+      <description>src-fit #  Files #     Name     src-fit/lds_fit.cpp LDS base fit type.   src-fit/lds_gaussian_fit.cpp GLDS fit type.   src-fit/lds_gaussian_fit_em.cpp GLDS E-M fit type.   src-fit/lds_gaussian_fit_ssid.cpp GLDS SSID fit type.   src-fit/lds_poisson_fit_em.cpp PLDS E-M fit type.   src-fit/lds_poisson_fit_ssid.cpp PLDS SSID fit type.     Updated on 25 June 2021 at 10:42:30 CDT</description>
+    </item>
+    
+    <item>
+      <title>src-fit/lds_fit.cpp</title>
+      <link>https://stanley-rozell.github.io/lds-ctrl-est/docs/api/files/lds__fit_8cpp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanley-rozell.github.io/lds-ctrl-est/docs/api/files/lds__fit_8cpp/</guid>
+      <description>LDS base fit type.</description>
+    </item>
+    
+    <item>
+      <title>src-fit/lds_gaussian_fit.cpp</title>
+      <link>https://stanley-rozell.github.io/lds-ctrl-est/docs/api/files/lds__gaussian__fit_8cpp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanley-rozell.github.io/lds-ctrl-est/docs/api/files/lds__gaussian__fit_8cpp/</guid>
+      <description>GLDS fit type.</description>
+    </item>
+    
+    <item>
+      <title>src-fit/lds_gaussian_fit_em.cpp</title>
+      <link>https://stanley-rozell.github.io/lds-ctrl-est/docs/api/files/lds__gaussian__fit__em_8cpp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanley-rozell.github.io/lds-ctrl-est/docs/api/files/lds__gaussian__fit__em_8cpp/</guid>
+      <description>GLDS E-M fit type.</description>
+    </item>
+    
+    <item>
+      <title>src-fit/lds_gaussian_fit_ssid.cpp</title>
+      <link>https://stanley-rozell.github.io/lds-ctrl-est/docs/api/files/lds__gaussian__fit__ssid_8cpp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanley-rozell.github.io/lds-ctrl-est/docs/api/files/lds__gaussian__fit__ssid_8cpp/</guid>
+      <description>GLDS SSID fit type.</description>
+    </item>
+    
+    <item>
+      <title>src-fit/lds_poisson_fit_em.cpp</title>
+      <link>https://stanley-rozell.github.io/lds-ctrl-est/docs/api/files/lds__poisson__fit__em_8cpp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanley-rozell.github.io/lds-ctrl-est/docs/api/files/lds__poisson__fit__em_8cpp/</guid>
+      <description>PLDS E-M fit type.</description>
+    </item>
+    
+    <item>
+      <title>src-fit/lds_poisson_fit_ssid.cpp</title>
+      <link>https://stanley-rozell.github.io/lds-ctrl-est/docs/api/files/lds__poisson__fit__ssid_8cpp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanley-rozell.github.io/lds-ctrl-est/docs/api/files/lds__poisson__fit__ssid_8cpp/</guid>
+      <description>PLDS SSID fit type.</description>
     </item>
     
     <item>

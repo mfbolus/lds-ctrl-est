@@ -1,11 +1,11 @@
 # Downloading the Library
-The source code for this library can be downloaded from [stanley-rozell/ldsCtrlEst](https://github.com/stanley-rozell/ldsCtrlEst) either by downloading a snapshot or cloning the repository via git.
+The source code for this library can be downloaded from [stanley-rozell/lds-ctrl-est](https://github.com/stanley-rozell/lds-ctrl-est) either by downloading a snapshot or cloning the repository via git.
 ```shell
-git clone https://github.com/stanley-rozell/ldsCtrlEst.git
+git clone https://github.com/stanley-rozell/lds-ctrl-est.git
 ```
 By default, this would check out the master branch. In most cases, we suggest downloading or checking out the latest release instead.
 ```shell
-cd /path/to/ldsCtrlEst
+cd /path/to/lds-ctrl-est
 git checkout 0.6
 ```
 
